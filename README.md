@@ -19,7 +19,7 @@ For node script _index.js_ to interact with mysql, a user 'luxpm' must be create
 
 `<GRANT CREATE, ALTER, DROP, INSERT, UPDATE, DELETE, SELECT on sukhija.LettersAndNumbers TO 'luxpm'@'localhost' WITH GRANT OPTION;>`
 
-To call node script _index.js_ via Postman, send a **GET** request to http://localhost:3000 with dummy test, copy and paste example for _Pre-request script_ and _Tests_ from **postman_test.txt**
+To call node script _index.js_ via Postman, send a **GET** request to http://localhost:3000 with dummy test, copy and paste example for _Pre-request script_ and _Tests_ from **postman_contract_test.txt**
 
 
 
