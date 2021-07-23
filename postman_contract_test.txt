@@ -1,0 +1,70 @@
+GET Request at http://localhost:3000
+
+--------------------------------------------------------------------------------
+Copy and paste the following Pre-request script:
+
+schema = {
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "title": "The root schema",
+    "description": "The root schema comprises the entire JSON document.",
+    "default": {},
+    "examples": [
+        {
+            "id": 1,
+            "name": "A green door",
+            "price": 12.5
+        }
+    ],
+    "required": [
+        "id",
+        "name",
+        "price"
+    ],
+    "properties": {
+        "id": {
+            "$id": "#/properties/id",
+            "type": "integer",
+            "title": "The id schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": 0,
+            "examples": [
+                1
+            ]
+        },
+        "name": {
+            "$id": "#/properties/name",
+            "type": "string",
+            "title": "The name schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "A green door"
+            ]
+        },
+        "price": {
+            "$id": "#/properties/price",
+            "type": "number",
+            "title": "The price schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": 0.0,
+            "examples": [
+                12.5
+            ]
+        }
+    },
+    "additionalProperties": true
+}
+
+
+--------------------------------------------------------------------------------
+
+Copy and past PM Tests code:
+
+pm.test("Validating is User schema correct", function() {
+    var response = pm.response.json();
+    console.log(response);
+    var result=tv4.validateResult(response, schema)
+pm.expect(result.valid).to.be.true;
+});
